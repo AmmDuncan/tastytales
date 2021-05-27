@@ -135,32 +135,32 @@ h1 {
   justify-content: center;
   align-items: center;
   flex: 0 1 20%;
-  border-radius: 50%;
+  padding: 0.2rem;
+  border: 2px solid rgba(222, 24, 60, 0.7);
+  border-radius: 2.25rem;
 }
 .hero .pics .img img {
   width: 100%;
   border-radius: 2rem;
   box-shadow: 0 1rem 1rem rgba(222, 24, 60, 0.2);
 }
-.hero .pics .img:after {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  border: 2px solid rgba(222, 24, 60, 0.7);
-  border-radius: 2.25rem;
-  transform: scale(1.055);
-}
 @media screen and (max-width: 575px) {
   .hero .pics {
     margin-top: 0;
+    margin-bottom: 2rem;
     position: relative;
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
   .hero .pics .img {
     flex: 0 1 35%;
+    border-radius: 50%;
     margin-top: 2rem;
+    border-width: 1px;
+    padding: 0.2rem;
+  }
+  .hero .pics .img img {
+    border-radius: 50%;
   }
 }
 @media screen and (max-width: 991px) {
