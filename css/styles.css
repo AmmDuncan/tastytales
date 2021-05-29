@@ -178,6 +178,42 @@ h1 {
   color: #E43150;
 }
 
+footer.footer {
+  padding: 5rem 0 0;
+  background: #321306;
+  color: #fff;
+}
+footer.footer #footer-line {
+  border: 1px solid #572A17;
+}
+
+footer .content {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+footer .content .nav-list {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+}
+footer .content .nav-item {
+  margin: 0 1rem;
+}
+footer .content .nav-link {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+footer .copyright {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0 2.5rem;
+  font-weight: 300;
+  font-size: 0.75rem;
+}
+
 .btn {
   padding: 0.75rem 1rem;
   box-shadow: 0 1.5rem 1rem -0.75rem rgba(222, 24, 60, 0.2);
