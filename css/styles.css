@@ -180,11 +180,11 @@ h1 {
 
 footer.footer {
   padding: 5rem 0 0;
-  background: #321306;
+  background: #572A17;
   color: #fff;
 }
 footer.footer #footer-line {
-  border: 1px solid #572A17;
+  border: 1px solid #613824;
 }
 
 footer .content {
@@ -212,6 +212,7 @@ footer .copyright {
   padding: 1.5rem 0 2.5rem;
   font-weight: 300;
   font-size: 0.75rem;
+  line-height: 1.618;
 }
 
 .btn {
