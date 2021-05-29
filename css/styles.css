@@ -401,6 +401,9 @@ FREQUENTLY ASKED QUESTIONS
     line-height: 1.2;
   }
 }
+.questions details {
+  position: relative;
+}
 .questions details summary {
   padding: 1.5rem 2rem;
   border: 8px solid #FCD2AA;
