@@ -295,7 +295,7 @@ h1 {
   top: -4rem;
   font-size: 240px;
   color: #fff;
-  filter: drop-shadow(0px 2px 4px #FCD2AA);
+  text-shadow: 0.25rem 0.25rem 0.125rem #FCD2AA;
 }
 
 /**************************************************
