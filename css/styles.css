@@ -402,23 +402,17 @@ FREQUENTLY ASKED QUESTIONS
   }
 }
 .questions details summary {
-  display: flex;
-  align-items: center;
   padding: 1.5rem 2rem;
   border: 8px solid #FCD2AA;
   border-radius: 0.5rem;
   box-shadow: 0 2.25rem 1.5rem -1.5rem rgba(252, 210, 170, 0.45);
   background: #FFF3E3;
-  text-align: center;
   font-weight: 600;
   line-height: 1.5;
 }
 .questions details summary #icon {
   margin-right: 1rem;
   transition: 0.2s ease-out;
-}
-.questions details summary::marker {
-  display: none;
 }
 .questions details p {
   width: 80%;
