@@ -336,7 +336,7 @@ OFFERS
   color: #FCD2AA;
   border: 4px solid #865845;
   border-radius: 0.25rem;
-  box-shadow: 0.25rem 1rem 0.75rem rgba(50, 19, 6, 0.2);
+  box-shadow: 0.35rem 1rem 0.75rem -0.25rem rgba(50, 19, 6, 0.2);
   text-align: center;
   padding: 1rem 1.5rem;
   line-height: 1.5;
