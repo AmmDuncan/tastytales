@@ -192,6 +192,13 @@ footer .content {
   flex-flow: column;
   align-items: center;
 }
+footer .content .nav-brand {
+  display: flex;
+  align-items: center;
+}
+footer .content .nav-brand img {
+  margin-right: 0.5rem;
+}
 footer .content .nav-list {
   margin-top: 2rem;
   margin-bottom: 2rem;
