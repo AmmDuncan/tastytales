@@ -60,6 +60,10 @@ body {
   width: 85%;
 }
 
+strong {
+  font-weight: bold;
+}
+
 html {
   font-size: 18px;
   color: #572A17;
@@ -382,6 +386,46 @@ OFFERS
 .offer-card.main .content:before {
   background: #572A17;
   opacity: 0.2;
+}
+
+/**************************************************
+FREQUENTLY ASKED QUESTIONS
+***************************************************/
+@media screen and (max-width: 767px) {
+  .questions .heading {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin-bottom: 3rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+}
+.questions details summary {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border: 8px solid #FCD2AA;
+  border-radius: 0.5rem;
+  box-shadow: 0 2.25rem 1.5rem -1.5rem rgba(252, 210, 170, 0.45);
+  background: #FFF3E3;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.questions details summary #icon {
+  margin-right: 1rem;
+  transition: 0.2s ease-out;
+}
+.questions details p {
+  width: 80%;
+  margin: auto;
+  padding: 1rem 2rem;
+  background: rgba(252, 210, 170, 0.3);
+  line-height: 1.618;
+}
+.questions details[open] #icon {
+  transform: rotate(90deg);
 }
 
 /*# sourceMappingURL=styles.css.map */
