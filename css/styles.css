@@ -195,6 +195,7 @@ footer .content {
 footer .content .nav-brand {
   display: flex;
   align-items: center;
+  margin-left: -1rem;
 }
 footer .content .nav-brand img {
   margin-right: 0.5rem;
@@ -216,7 +217,7 @@ footer .copyright {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0 2.5rem;
+  padding: 0.5rem 0 1rem;
   font-weight: 300;
   font-size: 0.75rem;
   line-height: 1.618;
@@ -454,14 +455,14 @@ FREQUENTLY ASKED QUESTIONS
   border-radius: 0.5rem;
   box-shadow: 0 2.25rem 1.5rem -1.5rem rgba(252, 210, 170, 0.45);
   background: #FFF3E3;
-  font-weight: 600;
+  font-weight: bold;
   line-height: 1.5;
 }
 .questions details p {
   width: 80%;
   margin: auto;
   padding: 1rem 2rem;
-  background: rgba(252, 210, 170, 0.3);
+  background: rgba(252, 210, 170, 0.2);
   line-height: 1.618;
 }
 
