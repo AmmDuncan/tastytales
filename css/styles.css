@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Neucha&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Neucha&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -61,7 +61,7 @@ body {
 }
 
 strong {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 html {
@@ -350,7 +350,7 @@ body:after {
   margin-top: 1rem;
 }
 .testimonial-card .person .name {
-  font-weight: bold;
+  font-weight: 600;
   text-transform: uppercase;
 }
 .testimonial-card .person .name:before {
