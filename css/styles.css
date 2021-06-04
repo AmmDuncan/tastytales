@@ -360,7 +360,7 @@ body:after {
 .testimonial-card:before {
   content: "“";
   position: absolute;
-  top: -4rem;
+  top: -3rem;
   font-size: 240px;
   color: #fff;
   text-shadow: 0.25rem 0.25rem 0.125rem #FCD2AA;
