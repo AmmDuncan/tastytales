@@ -106,6 +106,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   margin: auto;
+  margin-top: 0.5rem;
 }
 .hero .content .paragraph img {
   object-fit: contain;
