@@ -70,11 +70,6 @@ html {
   font-family: "Poppins", sans-serif;
   font-weight: lighter;
 }
-@media screen and (min-width: 1400px) {
-  html {
-    font-size: 20px;
-  }
-}
 
 h1, h2, h3 {
   font-family: "Neucha", "Script MT Bold", sans-serif;
