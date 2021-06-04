@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;600;700&family=Neucha&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Neucha&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -67,7 +67,8 @@ strong {
 html {
   font-size: 18px;
   color: #572A17;
-  font-family: "Mulish", sans-serif;
+  font-family: "Poppins", sans-serif;
+  font-weight: lighter;
 }
 
 h1, h2, h3 {
@@ -80,6 +81,8 @@ h1 {
 
 .hero {
   position: relative;
+  min-height: 80vh;
+  box-sizing: border-box;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -115,7 +118,7 @@ h1 {
 }
 .hero .content p {
   position: relative;
-  max-width: 320px;
+  max-width: 420px;
   margin: 1rem auto;
   line-height: 1.618;
 }
