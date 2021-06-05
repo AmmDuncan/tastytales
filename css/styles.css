@@ -1,5 +1,25 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=Neucha&display=swap");
+@keyframes glow {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1.6) scaleY(2.45);
+  }
+}
+@keyframes glow2 {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1.4) scaleY(2);
+  }
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -229,29 +249,54 @@ footer .copyright {
 
 .btn {
   padding: 0.75rem 1rem;
-  box-shadow: 0 1.5rem 1rem -0.75rem rgba(222, 24, 60, 0.2);
   text-decoration: none;
   border-radius: 8px;
   display: inline-block;
   transition: 0.1s ease-out;
+  font-weight: 400;
 }
 .btn-primary {
   background: #E43150;
+  box-shadow: 0 1.5rem 1rem -0.75rem rgba(222, 24, 60, 0.2);
   color: #fff;
 }
 .btn-primary:hover {
   background: #de183c;
+  box-shadow: 0 1.75rem 1.25rem -0.7rem rgba(228, 49, 80, 0.25);
 }
 .btn-primary:active {
   background: #E43150;
+  box-shadow: 0 1.25rem 0.8rem -0.8rem rgba(228, 49, 80, 0.25);
+}
+.btn-outline-secondary {
+  color: #FCD2AA;
+  border: 1px solid #FCD2AA;
+}
+.btn-outline-secondary:hover {
+  background: #FCD2AA;
+  color: #572A17;
+}
+.btn-outline-dark {
+  color: #572A17;
+  border: 1px solid #572A17;
+}
+.btn-outline-dark:hover {
+  background: #572A17;
+  color: #FFF3E3;
+}
+.btn-dark {
+  background: #572A17;
+  color: #FFF3E3;
+}
+.btn-dark:hover {
+  background: #321306;
+  color: #FFF3E3;
 }
 .btn:hover {
-  transform: scale(1.025);
-  box-shadow: 0 1.75rem 1.25rem -0.7rem rgba(228, 49, 80, 0.25);
+  transform: scale(1.05);
 }
 .btn:active {
   transform: scale(0.975);
-  box-shadow: 0 1.25rem 0.8rem -0.8rem rgba(228, 49, 80, 0.25);
 }
 
 body {
@@ -372,6 +417,8 @@ OFFERS
 .offers {
   background: #572A17;
   color: #fff;
+  position: relative;
+  z-index: 0;
 }
 .offers h2 {
   text-align: center;
@@ -383,7 +430,7 @@ OFFERS
   max-width: 365px;
   box-shadow: 0 1.25rem 2rem rgba(50, 19, 6, 0.3);
   border-radius: 0.5rem;
-  padding: 3rem 0;
+  padding: 3rem 0 0rem;
   background: #613824;
 }
 .offer-card header {
@@ -393,7 +440,7 @@ OFFERS
 .offer-card header .name {
   padding-left: 2rem;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
 }
 .offer-card header .common {
@@ -434,10 +481,18 @@ OFFERS
   line-height: 1.618;
   margin-bottom: 0.75rem;
 }
+.offer-card .cta {
+  margin: 2rem auto 0;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  background: rgba(50, 19, 6, 0.1);
+}
 .offer-card.main {
-  padding-bottom: 3.5rem;
+  position: relative;
   background: #FCD2AA;
   color: #572A17;
+  z-index: 50;
 }
 .offer-card.main header {
   margin-top: 1.5rem;
@@ -450,6 +505,52 @@ OFFERS
 .offer-card.main .content:before {
   background: #572A17;
   opacity: 0.2;
+}
+.offer-card.main .cta {
+  background: rgba(238, 185, 132, 0.3);
+}
+.offer-card.main .cta .btn {
+  position: relative;
+}
+.offer-card.main .cta .btn:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #865845;
+  animation: glow 1s linear infinite;
+  border-radius: 0.5rem;
+}
+.offer-card.main .cta .btn:after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #865845;
+  animation: glow2 1s 0.5s linear infinite;
+  border-radius: 0.5rem;
+}
+.offer-card.main:before {
+  content: "*Most Popular";
+  box-sizing: border-box;
+  z-index: 10;
+  position: absolute;
+  height: 1.3rem;
+  top: -1.3rem;
+  left: 0.5rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  padding: 0 0.75rem;
+  background: #eeb984;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.618;
 }
 
 /**************************************************
