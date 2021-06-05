@@ -416,7 +416,7 @@ OFFERS
 ***************************************************/
 .offers {
   background: #572A17;
-  color: #FCD2AA;
+  color: #f9dbc3;
   position: relative;
   z-index: 0;
 }
@@ -449,7 +449,7 @@ OFFERS
   top: -55%;
   right: -1.2rem;
   background: #613824;
-  color: #FCD2AA;
+  color: #f9dbc3;
   border: 4px solid #865845;
   border-radius: 0.25rem;
   box-shadow: 0.35rem 1rem 0.75rem -0.25rem rgba(50, 19, 6, 0.2);
