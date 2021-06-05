@@ -76,7 +76,7 @@ body {
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1200px;
   width: 85%;
 }
 
@@ -416,13 +416,14 @@ OFFERS
 ***************************************************/
 .offers {
   background: #572A17;
-  color: #fff;
+  color: #FCD2AA;
   position: relative;
   z-index: 0;
 }
 .offers h2 {
   text-align: center;
   margin-bottom: 3rem;
+  color: #FFF3E3;
 }
 
 .offer-card {
@@ -439,21 +440,21 @@ OFFERS
 }
 .offer-card header .name {
   padding-left: 2rem;
-  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
+  text-transform: uppercase;
 }
 .offer-card header .common {
   position: absolute;
-  top: -3rem;
-  right: -0.75rem;
+  top: -55%;
+  right: -1.2rem;
   background: #613824;
   color: #FCD2AA;
   border: 4px solid #865845;
   border-radius: 0.25rem;
   box-shadow: 0.35rem 1rem 0.75rem -0.25rem rgba(50, 19, 6, 0.2);
   text-align: center;
-  padding: 1rem 1.5rem;
+  padding: 0.75rem 1.25rem;
   line-height: 1.5;
   transform: rotate(7.5deg);
 }
@@ -495,12 +496,14 @@ OFFERS
   z-index: 50;
 }
 .offer-card.main header {
-  margin-top: 1.5rem;
-  margin-bottom: 1.25rem;
+  margin-top: 1.75rem;
+  margin-bottom: 1rem;
+}
+.offer-card.main header .name {
+  color: #572A17;
 }
 .offer-card.main header .common {
-  color: #fff;
-  top: -4.5rem;
+  top: -65%;
 }
 .offer-card.main .content:before {
   background: #572A17;
