@@ -90,6 +90,11 @@ html {
   font-family: "Rubik", sans-serif;
   font-weight: lighter;
 }
+@media screen and (max-width: 380px) {
+  html {
+    font-size: 15px;
+  }
+}
 
 h1, h2, h3 {
   font-family: "Neucha", "Gill Sans MT", sans-serif;
@@ -410,6 +415,11 @@ body:after {
   color: #fff;
   text-shadow: 0.25rem 0.25rem 0.125rem #FCD2AA;
 }
+@media screen and (max-width: 380px) {
+  .testimonial-card:before {
+    top: -4.2rem;
+  }
+}
 
 /**************************************************
 OFFERS
@@ -439,7 +449,7 @@ OFFERS
   padding: 0 0 2rem;
 }
 .offer-card header .name {
-  padding-left: 2rem;
+  padding-left: 1.5rem;
   font-weight: 400;
   line-height: 1.5;
   text-transform: uppercase;
