@@ -591,6 +591,7 @@ FREQUENTLY ASKED QUESTIONS
   box-shadow: 0 2.25rem 1.5rem -1.5rem rgba(252, 210, 170, 0.45);
   background: #FFF3E3;
   line-height: 1.5;
+  cursor: pointer;
 }
 .questions details p {
   width: 80%;
