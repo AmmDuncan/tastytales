@@ -155,7 +155,7 @@ h1 {
 .hero .pics {
   position: absolute;
   bottom: -6.5rem;
-  width: 80%;
+  width: 85%;
   max-width: 1140px;
   margin-top: 2rem;
   display: flex;
@@ -195,6 +195,39 @@ h1 {
   }
   .hero .pics .img img {
     border-radius: 50%;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .hero .pics {
+    bottom: -5.5rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  .hero .pics {
+    bottom: -4.5rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hero .pics {
+    width: 90%;
+    bottom: -3.5rem;
+  }
+}
+@media screen and (max-width: 575px) {
+  .hero .pics {
+    bottom: -6.5rem;
+    width: 95%;
+    justify-content: center;
+  }
+  .hero .pics .img {
+    margin-top: 0;
+    border: none;
+    border-radius: 0;
+    flex: 0 1 48%;
+  }
+  .hero .pics .img img {
+    border-radius: 0;
+    box-shadow: none;
   }
 }
 @media screen and (max-width: 991px) {
