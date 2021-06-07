@@ -358,16 +358,15 @@ footer .copyright {
   border-radius: 8px;
   display: inline-block;
   transition: 0.1s ease-out;
-  font-weight: 400;
 }
 .btn-primary {
   background: #E43150;
-  box-shadow: 0 1.5rem 1rem -0.75rem rgba(222, 24, 60, 0.2);
+  box-shadow: 0 0.5em 0.5rem -0.25rem rgba(222, 24, 60, 0.3);
   color: #fff;
 }
 .btn-primary:hover {
   background: #de183c;
-  box-shadow: 0 1.75rem 1.25rem -0.7rem rgba(228, 49, 80, 0.25);
+  box-shadow: 0 1.25rem 1rem -0.5rem rgba(228, 49, 80, 0.2);
 }
 .btn-primary:active {
   background: #E43150;
