@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
   <link rel="stylesheet" href="css/bootstrap/bootstrap-grid.css">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
   <header>
@@ -187,7 +188,11 @@
             </div>
 
             <div class="cta">
-              <a href="#" class="btn btn-outline-secondary">Order One</a>
+              <a href="#"
+                 class="btn btn-outline-secondary"
+                 data-index="1"
+
+              >Order One</a>
             </div>
           </div>
         </div>
@@ -223,7 +228,10 @@
             </div>
 
             <div class="cta">
-              <a href="#" class="btn btn-dark">Order One</a>
+              <a href="#"
+                 class="btn btn-dark"
+                 data-index="0"
+              >Order One</a>
             </div>
 
           </div>
@@ -261,7 +269,12 @@
             </div>
 
             <div class="cta">
-              <a href="#" class="btn btn-outline-secondary">Order One</a>
+              <a href="#"
+                 class="btn btn-outline-secondary"
+                 data-index="2"
+              >
+                Order One
+              </a>
             </div>
           </div>
         </div>
@@ -345,8 +358,19 @@
     </div>
   </footer>
 
+
+  <div class="modal open">
+  <div class="card">
+  </div>
+</div>
+
+
   <script src="js/bootstrap/bootstrap.bundle.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="js/cakes.js"></script>
+  <script src="js/modal.js" type="text/babel"></script>
   <script>
     AOS.init();
   </script>

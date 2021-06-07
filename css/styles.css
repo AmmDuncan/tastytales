@@ -352,6 +352,85 @@ footer .copyright {
   line-height: 1.618;
 }
 
+.modal {
+  display: none;
+}
+
+.modal.open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(32, 9, 9, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal.open h2 {
+  font-family: "Rubik";
+  text-transform: uppercase;
+}
+
+.card {
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 500px;
+  background: #FFF3E3;
+  padding: 1.5rem 2rem;
+  border: 0.5rem solid #FCD2AA;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 3rem rgba(50, 19, 6, 0.4);
+}
+.card .price {
+  margin-top: 2rem;
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: center;
+}
+.card h2 {
+  text-align: center;
+  font-weight: 400;
+}
+
+.size-cards {
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 0;
+}
+.size-cards .size-card {
+  box-sizing: border-box;
+  min-height: 4rem;
+  flex: 1 1 20%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e9dbc3;
+  padding: 0.25rem;
+  margin: 0.15rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  user-select: none;
+}
+.size-cards .size-card:hover {
+  box-shadow: 0 0.5rem 0.75rem rgba(25, 45, 35, 0.1);
+}
+.size-cards .size-card .small {
+  font-size: 1rem;
+  pointer-events: none;
+}
+.size-cards .size-card.active {
+  min-height: 8rem;
+  flex: 1 1 40%;
+  margin: 0.25rem;
+  border: 2px solid rgba(255, 29, 80, 0.6);
+  box-shadow: 0 0.5rem 0.75rem rgba(25, 45, 35, 0.1);
+  font-size: 2.5rem;
+}
+
 .btn {
   padding: 0.75rem 1rem;
   text-decoration: none;
