@@ -148,6 +148,7 @@ h1 {
   border-bottom: 1px solid rgba(134, 88, 69, 0.3);
   margin: 0.5rem auto 0;
   background: #FFF3E3;
+  box-shadow: 0 0.45rem 1.5rem rgba(134, 88, 69, 0.2);
 }
 .navbar .nav .nav-item .nav-link {
   display: inline-block;
