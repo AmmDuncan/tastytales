@@ -165,6 +165,19 @@ class UserForm extends React.Component {
                 })
             }
         }
+
+        if (!name) {
+            this.setState(({fields, fieldErrors, error}) => {
+                return {
+                    fields,
+                    fieldErrors:
+                      Object.assign(
+                        {},
+                        fieldErrors,
+                        {name: "Name cannot be empty"})
+                }
+            })
+        }
     }
 
     render() {
@@ -179,6 +192,7 @@ class UserForm extends React.Component {
                          className="form-control form-control-sm"
                          onChange={this.onInputChange}/>
               </div>
+              <div className="small color-red mt-1">{this.state.fieldErrors.name}</div>
               <div className="d-flex align-items-center mt-2">
                   <label htmlFor="whatsapp">WhatsApp:</label>
                   <input type="text"
@@ -188,7 +202,7 @@ class UserForm extends React.Component {
                          className="form-control form-control-sm"
                          onChange={this.onInputChange}/>
               </div>
-                <div className="small color-red mt-1">{this.state.fieldErrors.whatsapp}</div>
+              <div className="small color-red mt-1">{this.state.fieldErrors.whatsapp}</div>
               <div className="d-flex align-items-center mt-2">
                   <label htmlFor="instagram">Instagram: </label>
                   <input type="text"
@@ -203,7 +217,7 @@ class UserForm extends React.Component {
               <div className="d-flex align-items-center justify-content-center mt-4">
                   <input type="submit"
                          value="Place Order"
-                         className="btn btn-primary form-control"/>
+                         className="btn btn-dark form-control"/>
               </div>
           </form>
         )
