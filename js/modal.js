@@ -148,8 +148,7 @@ class UserForm extends React.Component {
         })
     }
 
-    onFormSubmit = (e) => {
-        e.preventDefault()
+    validateWholeForm = () => {
         let {name, whatsapp, instagram} = this.state.fields
         let error = "Provide either your whatsapp number or instagram handle"
         if (!whatsapp && !instagram) {
@@ -172,6 +171,10 @@ class UserForm extends React.Component {
                 error,
             })
         }
+    }
+
+    validateWhatsAppContact = () => {
+        let {whatsapp, instagram} = this.state.fields
 
         if (whatsapp && !instagram) {
             if(!validatePhone(whatsapp)) {
@@ -198,6 +201,10 @@ class UserForm extends React.Component {
                 })
             }
         }
+    }
+
+    validateName = () => {
+       let {name} = this.state.fields
 
         if (!name) {
             this.setState(({fields, fieldErrors, error}) => {
@@ -222,6 +229,13 @@ class UserForm extends React.Component {
                 }
             })
         }
+    }
+
+    onFormSubmit = (e) => {
+        e.preventDefault()
+        this.validateWholeForm()
+        this.validateWhatsAppContact()
+        this.validateName()
     }
 
     render() {
