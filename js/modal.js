@@ -8,6 +8,12 @@ modal.addEventListener('click', function(e) {
     }
 })
 
+modalCard.addEventListener('click', function (e) {
+    if(e.target.classList.contains('close')) {
+        modal.classList.remove('open')
+    }
+})
+
 let INDEX = 0;
 
 function openModal(e){
@@ -78,6 +84,11 @@ class Root extends React.Component {
                 </SizeCardContainer>
 
                 <UserForm />
+
+                <div className="close">
+                    <img src="img/close.svg" alt="close"/>
+                </div>
+
             </>
         )
     }
@@ -140,6 +151,7 @@ class UserForm extends React.Component {
     onFormSubmit = (e) => {
         e.preventDefault()
         let {name, whatsapp, instagram} = this.state.fields
+        let error = "Provide either your whatsapp number or instagram handle"
         if (!whatsapp && !instagram) {
             this.setState({
                 fields: {
@@ -147,7 +159,17 @@ class UserForm extends React.Component {
                     whatsapp,
                     instagram,
                 },
-                error: "Provide either your whatsapp number or instagram handle"
+                error,
+            })
+        } else {
+            error = ""
+            this.setState({
+                fields: {
+                    name,
+                    whatsapp,
+                    instagram,
+                },
+                error,
             })
         }
 
@@ -161,6 +183,17 @@ class UserForm extends React.Component {
                             {},
                             fieldErrors,
                             {whatsapp: "Invalid phone number"})
+                    }
+                })
+            } else {
+                this.setState(({fields, fieldErrors, error}) => {
+                    return {
+                        fields,
+                        fieldErrors:
+                          Object.assign(
+                            {},
+                            fieldErrors,
+                            {whatsapp: ""})
                     }
                 })
             }
@@ -177,6 +210,17 @@ class UserForm extends React.Component {
                         {name: "Name cannot be empty"})
                 }
             })
+        } else {
+            this.setState(({fields, fieldErrors, error}) => {
+                return {
+                    fields,
+                    fieldErrors:
+                      Object.assign(
+                        {},
+                        fieldErrors,
+                        {name: ""})
+                }
+            })
         }
     }
 
@@ -184,7 +228,7 @@ class UserForm extends React.Component {
         return (
           <form className="row" onSubmit={this.onFormSubmit}>
               <div className="d-flex align-items-center">
-                  <label htmlFor="name">Name:</label>
+                  <label htmlFor="name" className="d-flex">Name: <span className="color-red">*</span></label>
                   <input type="text"
                          placeholder="John"
                          name="name"
@@ -214,7 +258,7 @@ class UserForm extends React.Component {
               </div>
               <div className="small color-red">{this.state.error}</div>
               
-              <div className="d-flex align-items-center justify-content-center mt-4">
+              <div className="d-flex align-items-center justify-content-center mt-3 mb-0">
                   <input type="submit"
                          value="Place Order"
                          className="btn btn-dark form-control"/>
