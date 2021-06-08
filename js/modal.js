@@ -1,1 +1,330 @@
-"use strict";function _defineProperty(e,t,a){return t in e?Object.defineProperty(e,t,{value:a,enumerable:!0,configurable:!0,writable:!0}):e[t]=a,e}const modalSrc=document.querySelector(".modal"),modalCard=document.querySelector(".modal .card"),offerBtns=document.querySelectorAll(".offer-card .btn");modalSrc.addEventListener("click",function(e){e.target===modalSrc&&modalSrc.classList.remove("open")}),modalCard.addEventListener("click",function(e){e.target.classList.contains("close")&&modalSrc.classList.remove("open")});let INDEX=0;function openModal(e){modalSrc.classList.add("open"),callSetOrder(parseInt(e.target.dataset.index)),e.preventDefault()}function callSetOrder(e){this.setOrder(e)}offerBtns.forEach(e=>{e.addEventListener("click",openModal)});class Root extends React.Component{constructor(e){super(e),_defineProperty(this,"changeSize",e=>{this.setState(({order:t,active:a})=>({order:t,active:parseInt(e)}))}),_defineProperty(this,"setOrder",e=>{this.setState(({order:t,active:a})=>({order:cakes[e],active:cakes[e].common}))}),this.state={order:cakes[INDEX],active:cakes[INDEX].common},window.callSetOrder=window.callSetOrder.bind(this)}render(){let e=this.state.order.sizes.map(e=>React.createElement(SizeCard,{key:e,size:e,active:e===this.state.active,changeActive:this.changeSize})),{order:t,active:a}=this.state,r=a.toString(),s=parseFloat(t.prices[r]);return s=s.toFixed(2),React.createElement(React.Fragment,null,React.createElement("h2",null,"Order - ",this.state.order.name),React.createElement("div",{className:"price"},"GH¢",s,React.createElement("div",{className:"small"},"*",React.createElement("strong",null,"Not")," including delivery")),React.createElement(SizeCardContainer,null,e),React.createElement(UserForm,null),React.createElement("div",{className:"close"},React.createElement("img",{src:"img/close.svg",alt:"close"})))}}class SizeCardContainer extends React.Component{render(){return React.createElement("div",{className:"size-cards"},this.props.children)}}class SizeCard extends React.Component{constructor(...e){super(...e),_defineProperty(this,"changeActive",e=>{this.props.changeActive(e.target.dataset.size)})}render(){let{size:e,active:t}=this.props;return React.createElement("div",{className:`size-card ${t?"active":""}`,"data-size":e,onClick:this.changeActive},this.props.size,React.createElement("span",{className:"small"},"Inch"))}}class UserForm extends React.Component{constructor(...e){super(...e),_defineProperty(this,"state",{fields:{name:"",whatsapp:"",instagram:""},fieldErrors:{name:"",whatsapp:"",instagram:""},error:""}),_defineProperty(this,"onInputChange",e=>{let t={...this.state.fields};t[e.target.name]=e.target.value,this.setState({fields:t})}),_defineProperty(this,"validateWholeForm",()=>{let{name:e,whatsapp:t,instagram:a}=this.state.fields,r="Provide either your whatsapp number or instagram handle";t||a?(r="",this.setState({fields:{name:e,whatsapp:t,instagram:a},error:r})):this.setState({fields:{name:e,whatsapp:t,instagram:a},error:r})}),_defineProperty(this,"validateWhatsAppContact",()=>{let{whatsapp:e,instagram:t}=this.state.fields;e&&!t&&(validatePhone(e)?this.setState(({fields:e,fieldErrors:t,error:a})=>({fields:e,fieldErrors:Object.assign({},t,{whatsapp:""})})):this.setState(({fields:e,fieldErrors:t,error:a})=>({fields:e,fieldErrors:Object.assign({},t,{whatsapp:"Invalid phone number"})})))}),_defineProperty(this,"validateName",()=>{let{name:e}=this.state.fields;e?this.setState(({fields:e,fieldErrors:t,error:a})=>({fields:e,fieldErrors:Object.assign({},t,{name:""})})):this.setState(({fields:e,fieldErrors:t,error:a})=>({fields:e,fieldErrors:Object.assign({},t,{name:"Name cannot be empty"})}))}),_defineProperty(this,"onFormSubmit",e=>{e.preventDefault(),this.validateWholeForm(),this.validateWhatsAppContact(),this.validateName()})}render(){return React.createElement("form",{className:"row",onSubmit:this.onFormSubmit},React.createElement("div",{className:"d-flex align-items-center"},React.createElement("label",{htmlFor:"name",className:"d-flex"},"Name: ",React.createElement("span",{className:"color-red"},"*")),React.createElement("input",{type:"text",placeholder:"John",name:"name",id:"name",className:"form-control form-control-sm",onChange:this.onInputChange})),React.createElement("div",{className:"small color-red mt-1"},this.state.fieldErrors.name),React.createElement("div",{className:"d-flex align-items-center mt-1"},React.createElement("label",{htmlFor:"whatsapp"},"WhatsApp:"),React.createElement("input",{type:"text",placeholder:"02XXXXXXXX",name:"whatsapp",id:"whatsapp",className:"form-control form-control-sm",onChange:this.onInputChange})),React.createElement("div",{className:"small color-red mt-1"},this.state.fieldErrors.whatsapp),React.createElement("div",{className:"d-flex align-items-center mt-1"},React.createElement("label",{htmlFor:"instagram"},"Instagram: "),React.createElement("input",{type:"text",placeholder:"@yourhandle",name:"instagram",id:"instagram",className:"form-control form-control-sm",onChange:this.onInputChange})),React.createElement("div",{className:"small color-red"},this.state.error),React.createElement("div",{className:"d-flex align-items-center justify-content-center mt-3 mb-0"},React.createElement("input",{type:"submit",value:"Place Order",className:"btn btn-dark form-control"})))}}ReactDOM.render(React.createElement(Root,null),document.querySelector(".modal .card"));
+"use strict";
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+const modal = document.querySelector('.modal');
+const modalCard = document.querySelector('.modal .card');
+const offerBtns = document.querySelectorAll('.offer-card .btn');
+modal.addEventListener('click', function (e) {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = "auto";
+}
+
+modalCard.addEventListener('click', function (e) {
+  if (e.target.classList.contains('close')) {
+    closeModal();
+  }
+});
+let INDEX = 0;
+
+function openModal(e) {
+  modal.classList.add('open');
+  document.body.style.overflow = "hidden";
+  let index = parseInt(e.target.dataset.index);
+  callSetOrder(index);
+  e.preventDefault();
+}
+
+function callSetOrder(index) {
+  this.setOrder(index);
+}
+
+offerBtns.forEach(btn => {
+  btn.addEventListener('click', openModal);
+});
+
+class Root extends React.Component {
+  constructor(props) {
+    super(props);
+
+    _defineProperty(this, "changeSize", size => {
+      this.setState(({
+        order,
+        active
+      }) => {
+        return {
+          order,
+          active: parseInt(size)
+        };
+      });
+    });
+
+    _defineProperty(this, "setOrder", ind => {
+      this.setState(({
+        order,
+        active
+      }) => ({
+        order: cakes[ind],
+        active: cakes[ind].common
+      }));
+    });
+
+    this.state = {
+      order: cakes[INDEX],
+      active: cakes[INDEX].common
+    };
+    window.callSetOrder = window.callSetOrder.bind(this);
+  }
+
+  render() {
+    let children = this.state.order.sizes.map(size => /*#__PURE__*/React.createElement(SizeCard, {
+      key: size,
+      size: size,
+      active: size === this.state.active,
+      changeActive: this.changeSize
+    }));
+    let {
+      order,
+      active
+    } = this.state;
+    let key = active.toString();
+    let price = parseFloat(order.prices[key]);
+    price = price.toFixed(2);
+    return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h2", null, "Order - ", this.state.order.name), /*#__PURE__*/React.createElement("div", {
+      className: "price"
+    }, "GH\xA2", price, /*#__PURE__*/React.createElement("div", {
+      className: "small"
+    }, "*", /*#__PURE__*/React.createElement("strong", null, "Not"), " including delivery")), /*#__PURE__*/React.createElement(SizeCardContainer, null, children), /*#__PURE__*/React.createElement(UserForm, null), /*#__PURE__*/React.createElement("div", {
+      className: "close"
+    }, /*#__PURE__*/React.createElement("img", {
+      src: "img/close.svg",
+      alt: "close"
+    })));
+  }
+
+}
+
+class SizeCardContainer extends React.Component {
+  render() {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "size-cards"
+    }, this.props.children);
+  }
+
+}
+
+class SizeCard extends React.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "changeActive", e => {
+      this.props.changeActive(e.target.dataset.size);
+    });
+  }
+
+  render() {
+    let {
+      size,
+      active
+    } = this.props;
+    return /*#__PURE__*/React.createElement("div", {
+      className: `size-card ${active ? "active" : ""}`,
+      "data-size": size,
+      onClick: this.changeActive
+    }, this.props.size, /*#__PURE__*/React.createElement("span", {
+      className: "small"
+    }, "Inch"));
+  }
+
+}
+
+class UserForm extends React.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      fields: {
+        name: "",
+        whatsapp: "",
+        instagram: ""
+      },
+      fieldErrors: {
+        name: "",
+        whatsapp: "",
+        instagram: ""
+      },
+      error: ""
+    });
+
+    _defineProperty(this, "onInputChange", e => {
+      let fields = { ...this.state.fields
+      };
+      fields[e.target.name] = e.target.value;
+      this.setState({
+        fields
+      });
+    });
+
+    _defineProperty(this, "validateWholeForm", () => {
+      let {
+        name,
+        whatsapp,
+        instagram
+      } = this.state.fields;
+      let error = "Provide either your whatsapp number or instagram handle";
+
+      if (!whatsapp && !instagram) {
+        this.setState({
+          fields: {
+            name,
+            whatsapp,
+            instagram
+          },
+          error
+        });
+      } else {
+        error = "";
+        this.setState({
+          fields: {
+            name,
+            whatsapp,
+            instagram
+          },
+          error
+        });
+      }
+    });
+
+    _defineProperty(this, "validateWhatsAppContact", () => {
+      let {
+        whatsapp,
+        instagram
+      } = this.state.fields;
+
+      if (whatsapp && !instagram) {
+        if (!validatePhone(whatsapp)) {
+          this.setState(({
+            fields,
+            fieldErrors,
+            error
+          }) => {
+            return {
+              fields,
+              fieldErrors: Object.assign({}, fieldErrors, {
+                whatsapp: "Invalid phone number"
+              })
+            };
+          });
+        } else {
+          this.setState(({
+            fields,
+            fieldErrors,
+            error
+          }) => {
+            return {
+              fields,
+              fieldErrors: Object.assign({}, fieldErrors, {
+                whatsapp: ""
+              })
+            };
+          });
+        }
+      }
+    });
+
+    _defineProperty(this, "validateName", () => {
+      let {
+        name
+      } = this.state.fields;
+
+      if (!name) {
+        this.setState(({
+          fields,
+          fieldErrors,
+          error
+        }) => {
+          return {
+            fields,
+            fieldErrors: Object.assign({}, fieldErrors, {
+              name: "Name cannot be empty"
+            })
+          };
+        });
+      } else {
+        this.setState(({
+          fields,
+          fieldErrors,
+          error
+        }) => {
+          return {
+            fields,
+            fieldErrors: Object.assign({}, fieldErrors, {
+              name: ""
+            })
+          };
+        });
+      }
+    });
+
+    _defineProperty(this, "onFormSubmit", e => {
+      e.preventDefault();
+      this.validateWholeForm();
+      this.validateWhatsAppContact();
+      this.validateName();
+    });
+  }
+
+  render() {
+    return /*#__PURE__*/React.createElement("form", {
+      className: "row",
+      onSubmit: this.onFormSubmit
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "d-flex align-items-center"
+    }, /*#__PURE__*/React.createElement("label", {
+      htmlFor: "name",
+      className: "d-flex"
+    }, "Name: ", /*#__PURE__*/React.createElement("span", {
+      className: "color-red"
+    }, "*")), /*#__PURE__*/React.createElement("input", {
+      type: "text",
+      placeholder: "John",
+      name: "name",
+      id: "name",
+      className: "form-control form-control-sm",
+      onChange: this.onInputChange
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "small color-red mt-1"
+    }, this.state.fieldErrors.name), /*#__PURE__*/React.createElement("div", {
+      className: "d-flex align-items-center mt-1"
+    }, /*#__PURE__*/React.createElement("label", {
+      htmlFor: "whatsapp"
+    }, "WhatsApp:"), /*#__PURE__*/React.createElement("input", {
+      type: "text",
+      placeholder: "02XXXXXXXX",
+      name: "whatsapp",
+      id: "whatsapp",
+      className: "form-control form-control-sm",
+      onChange: this.onInputChange
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "small color-red mt-1"
+    }, this.state.fieldErrors.whatsapp), /*#__PURE__*/React.createElement("div", {
+      className: "d-flex align-items-center mt-1"
+    }, /*#__PURE__*/React.createElement("label", {
+      htmlFor: "instagram"
+    }, "Instagram: "), /*#__PURE__*/React.createElement("input", {
+      type: "text",
+      placeholder: "@yourhandle",
+      name: "instagram",
+      id: "instagram",
+      className: "form-control form-control-sm",
+      onChange: this.onInputChange
+    })), /*#__PURE__*/React.createElement("div", {
+      className: "small color-red"
+    }, this.state.error), /*#__PURE__*/React.createElement("div", {
+      className: "d-flex align-items-center justify-content-center mt-3 mb-0"
+    }, /*#__PURE__*/React.createElement("input", {
+      type: "submit",
+      value: "Place Order",
+      className: "btn btn-dark form-control"
+    })));
+  }
+
+}
+
+ReactDOM.render( /*#__PURE__*/React.createElement(Root, null), document.querySelector(".modal .card"));

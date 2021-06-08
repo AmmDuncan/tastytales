@@ -1,23 +1,29 @@
-const modalSrc = document.querySelector('.modal')
+const modal = document.querySelector('.modal')
 const modalCard = document.querySelector('.modal .card')
 const offerBtns = document.querySelectorAll('.offer-card .btn')
 
-modalSrc.addEventListener('click', function(e) {
-    if(e.target === modalSrc) {
-        modalSrc.classList.remove('open')
+modal.addEventListener('click', function(e) {
+    if(e.target === modal) {
+        closeModal();
     }
 })
 
+function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = "auto";
+}
+
 modalCard.addEventListener('click', function (e) {
     if(e.target.classList.contains('close')) {
-        modalSrc.classList.remove('open')
+        closeModal();
     }
 })
 
 let INDEX = 0;
 
 function openModal(e){
-    modalSrc.classList.add('open');
+    modal.classList.add('open');
+    document.body.style.overflow = "hidden"
     let index = parseInt(e.target.dataset.index)
     callSetOrder(index)
     e.preventDefault();
