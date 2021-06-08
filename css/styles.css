@@ -442,6 +442,8 @@ footer .copyright {
   color: rgba(134, 88, 69, 0.6);
 }
 .card input[type=submit] {
+  font-family: "Rubik";
+  font-weight: 300;
   display: block;
   position: relative;
   border: none;
@@ -470,6 +472,11 @@ footer .copyright {
   }
   .card form {
     margin-top: 1rem;
+    font-size: smaller;
+  }
+  .card input:not([type=submit]) {
+    font-size: 16px;
+    padding: 0.125rem 0.4rem;
   }
 }
 
@@ -522,6 +529,12 @@ footer .copyright {
 @media screen and (max-width: 475px) {
   .size-cards {
     margin: 1rem 0 0;
+  }
+  .size-cards .size-card {
+    min-height: 3rem;
+  }
+  .size-cards .size-card.active {
+    min-height: 5rem;
   }
 }
 
