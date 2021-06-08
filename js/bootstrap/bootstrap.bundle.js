@@ -4146,7 +4146,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta3): modal.js
+   * Bootstrap (v5.0.0-beta3): modal-src.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -4157,7 +4157,7 @@
    */
 
   const NAME$6 = 'modal';
-  const DATA_KEY$6 = 'bs.modal';
+  const DATA_KEY$6 = 'bs.modalSrc';
   const EVENT_KEY$6 = `.${DATA_KEY$6}`;
   const DATA_API_KEY$3 = '.data-api';
   const ESCAPE_KEY$1 = 'Escape';
@@ -4183,16 +4183,16 @@
   const EVENT_MOUSEUP_DISMISS = `mouseup.dismiss${EVENT_KEY$6}`;
   const EVENT_MOUSEDOWN_DISMISS = `mousedown.dismiss${EVENT_KEY$6}`;
   const EVENT_CLICK_DATA_API$2 = `click${EVENT_KEY$6}${DATA_API_KEY$3}`;
-  const CLASS_NAME_SCROLLBAR_MEASURER = 'modal-scrollbar-measure';
-  const CLASS_NAME_BACKDROP = 'modal-backdrop';
-  const CLASS_NAME_OPEN = 'modal-open';
+  const CLASS_NAME_SCROLLBAR_MEASURER = 'modalSrc-scrollbar-measure';
+  const CLASS_NAME_BACKDROP = 'modalSrc-backdrop';
+  const CLASS_NAME_OPEN = 'modalSrc-open';
   const CLASS_NAME_FADE$4 = 'fade';
   const CLASS_NAME_SHOW$5 = 'show';
-  const CLASS_NAME_STATIC = 'modal-static';
-  const SELECTOR_DIALOG = '.modal-dialog';
-  const SELECTOR_MODAL_BODY = '.modal-body';
-  const SELECTOR_DATA_TOGGLE$2 = '[data-bs-toggle="modal"]';
-  const SELECTOR_DATA_DISMISS$2 = '[data-bs-dismiss="modal"]';
+  const CLASS_NAME_STATIC = 'modalSrc-static';
+  const SELECTOR_DIALOG = '.modalSrc-dialog';
+  const SELECTOR_MODAL_BODY = '.modalSrc-body';
+  const SELECTOR_DATA_TOGGLE$2 = '[data-bs-toggle="modalSrc"]';
+  const SELECTOR_DATA_DISMISS$2 = '[data-bs-dismiss="modalSrc"]';
   const SELECTOR_FIXED_CONTENT$1 = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top';
   const SELECTOR_STICKY_CONTENT$1 = '.sticky-top';
   /**
@@ -4351,7 +4351,7 @@
       const modalBody = SelectorEngine.findOne(SELECTOR_MODAL_BODY, this._dialog);
 
       if (!this._element.parentNode || this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
-        // Don't move modal's DOM position
+        // Don't move modalSrc's DOM position
         document.body.appendChild(this._element);
       }
 
@@ -4359,7 +4359,7 @@
 
       this._element.removeAttribute('aria-hidden');
 
-      this._element.setAttribute('aria-modal', true);
+      this._element.setAttribute('aria-modalSrc', true);
 
       this._element.setAttribute('role', 'dialog');
 
@@ -4437,7 +4437,7 @@
 
       this._element.setAttribute('aria-hidden', true);
 
-      this._element.removeAttribute('aria-modal');
+      this._element.removeAttribute('aria-modalSrc');
 
       this._element.removeAttribute('role');
 
@@ -4682,7 +4682,7 @@
 
     EventHandler.one(target, EVENT_SHOW$3, showEvent => {
       if (showEvent.defaultPrevented) {
-        // only register focus restorer if modal will actually get shown
+        // only register focus restorer if modalSrc will actually get shown
         return;
       }
 
@@ -4873,7 +4873,7 @@
 
       this._element.removeAttribute('aria-hidden');
 
-      this._element.setAttribute('aria-modal', true);
+      this._element.setAttribute('aria-modalSrc', true);
 
       this._element.setAttribute('role', 'dialog');
 
@@ -4916,7 +4916,7 @@
       const completeCallback = () => {
         this._element.setAttribute('aria-hidden', true);
 
-        this._element.removeAttribute('aria-modal');
+        this._element.removeAttribute('aria-modalSrc');
 
         this._element.removeAttribute('role');
 
@@ -5329,7 +5329,7 @@
     dispose() {
       clearTimeout(this._timeout);
       EventHandler.off(this._element, this.constructor.EVENT_KEY);
-      EventHandler.off(this._element.closest(`.${CLASS_NAME_MODAL}`), 'hide.bs.modal', this._hideModalHandler);
+      EventHandler.off(this._element.closest(`.${CLASS_NAME_MODAL}`), 'hide.bs.modalSrc', this._hideModalHandler);
 
       if (this.tip && this.tip.parentNode) {
         this.tip.parentNode.removeChild(this.tip);
@@ -5686,7 +5686,7 @@
         }
       };
 
-      EventHandler.on(this._element.closest(`.${CLASS_NAME_MODAL}`), 'hide.bs.modal', this._hideModalHandler);
+      EventHandler.on(this._element.closest(`.${CLASS_NAME_MODAL}`), 'hide.bs.modalSrc', this._hideModalHandler);
 
       if (this.config.selector) {
         this.config = { ...this.config,
