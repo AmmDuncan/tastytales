@@ -10,7 +10,7 @@ modal.addEventListener('click', function(e) {
 
 function closeModal() {
     modal.classList.remove('open');
-    document.body.style.overflow = "auto";
+    document.body.style.overflowY = "auto";
 }
 
 modalCard.addEventListener('click', function (e) {
@@ -23,7 +23,7 @@ let INDEX = 0;
 
 function openModal(e){
     modal.classList.add('open');
-    document.body.style.overflow = "hidden"
+    document.body.style.overflowY = "hidden"
     let index = parseInt(e.target.dataset.index)
     callSetOrder(index)
     e.preventDefault();
@@ -152,96 +152,63 @@ class UserForm extends React.Component {
         this.setState({
             fields
         })
+
+        this.validateWholeForm(e.target.value, name=false)
     }
 
-    validateWholeForm = () => {
-        let {name, whatsapp, instagram} = this.state.fields
-        let error = "Provide either your whatsapp number or instagram handle"
-        if (!whatsapp && !instagram) {
-            this.setState({
-                fields: {
-                    name,
-                    whatsapp,
-                    instagram,
-                },
-                error,
-            })
-        } else {
-            error = ""
-            this.setState({
-                fields: {
-                    name,
-                    whatsapp,
-                    instagram,
-                },
-                error,
-            })
-        }
-    }
-
-    validateWhatsAppContact = () => {
+    // imperative programming for validation (not pure functions)
+    validateWholeForm = (whatsappValue, name=true) => {
         let {whatsapp, instagram} = this.state.fields
+        let error = "";
+        if (!whatsapp && !instagram) {
+            error = "Provide either your whatsapp number or instagram handle";
+        }
+        // whatsappValue is provided user that for whatsapp validation
+        let fields = whatsappValue ? {whatsapp: whatsappValue} : {...this.state.fields};
+        let whatsappErrors = this.validateWhatsAppContact(fields);
+
+        let nameErrors = {}
+        if (name) nameErrors = this.validateName({...this.state.fields});
+
+        let fieldErrors = Object.assign({}, whatsappErrors, nameErrors)
+
+        this.setState(({fields}) => {
+            return {fields, fieldErrors, error}
+        })
+    }
+
+    validateWhatsAppContact = (fields) => {
+        let errors = {}
+
+        let {whatsapp, instagram} = fields
 
         if (whatsapp && !instagram) {
             if(!validatePhone(whatsapp)) {
-                this.setState(({fields, fieldErrors, error}) => {
-                    return {
-                        fields,
-                        fieldErrors:
-                          Object.assign(
-                            {},
-                            fieldErrors,
-                            {whatsapp: "Invalid phone number"})
-                    }
-                })
-            } else {
-                this.setState(({fields, fieldErrors, error}) => {
-                    return {
-                        fields,
-                        fieldErrors:
-                          Object.assign(
-                            {},
-                            fieldErrors,
-                            {whatsapp: ""})
-                    }
-                })
+                errors.whatsapp = "Invalid phone number";
+            }else {
+                errors.whatsapp = "";
             }
         }
+
+        return errors
     }
 
-    validateName = () => {
-       let {name} = this.state.fields
+    validateName = (fields) => {
+        let {name} = fields
+        let errors = {}
 
         if (!name) {
-            this.setState(({fields, fieldErrors, error}) => {
-                return {
-                    fields,
-                    fieldErrors:
-                      Object.assign(
-                        {},
-                        fieldErrors,
-                        {name: "Name cannot be empty"})
-                }
-            })
+            errors.name = "Name Is Required";
         } else {
-            this.setState(({fields, fieldErrors, error}) => {
-                return {
-                    fields,
-                    fieldErrors:
-                      Object.assign(
-                        {},
-                        fieldErrors,
-                        {name: ""})
-                }
-            })
+            errors.name = "";
         }
+
+        return errors
     }
 
     onFormSubmit = (e) => {
         e.preventDefault()
         this.validateWholeForm()
-        this.validateWhatsAppContact()
-        this.validateName()
     }
 
     render() {
