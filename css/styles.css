@@ -475,7 +475,7 @@ footer .copyright {
     font-size: smaller;
   }
   .card input:not([type=submit]) {
-    font-size: smaller;
+    font-size: 15px;
     padding: 0.125rem 0.4rem;
   }
 }
