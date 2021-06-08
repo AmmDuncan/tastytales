@@ -517,7 +517,7 @@ footer .copyright {
 }
 @media screen and (max-width: 475px) {
   .size-cards {
-    margin: 0.5rem 0 0;
+    margin: 1rem 0 0;
   }
 }
 
