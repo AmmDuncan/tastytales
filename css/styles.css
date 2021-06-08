@@ -89,7 +89,11 @@ body {
 }
 
 strong {
-  font-weight: 500;
+  font-weight: 400;
+}
+
+input, select {
+  font-size: 100%;
 }
 
 html {
@@ -362,7 +366,7 @@ footer .copyright {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(32, 9, 9, 0.75);
+  background: rgba(36, 22, 22, 0.75);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -384,13 +388,68 @@ footer .copyright {
 }
 .card .price {
   margin-top: 2rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 400;
   text-align: center;
+}
+.card .price .small {
+  margin-top: 0.1rem;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #613824;
+}
+.card .price .small strong {
+  font-weight: 400;
 }
 .card h2 {
   text-align: center;
   font-weight: 400;
+}
+.card label {
+  margin-right: 0.5rem;
+}
+.card input:not([type=submit]) {
+  border: none;
+  background: rgba(249, 219, 195, 0.6);
+  color: #572A17;
+  font-size: 16px;
+}
+.card input:not([type=submit]):focus-within {
+  border: 1px solid rgba(134, 88, 69, 0.3);
+}
+.card input:not([type=submit])::placeholder {
+  color: rgba(134, 88, 69, 0.5);
+}
+.card input[type=submit] {
+  display: block;
+  position: relative;
+  border: none;
+  font-size: 16px;
+}
+.card form {
+  max-width: 360px;
+  margin: 1.25rem auto;
+  font-size: 16px;
+}
+.card form .small {
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  pointer-events: none;
+  line-height: 1.25;
+  text-align: center;
+  font-weight: 400;
+}
+@media screen and (max-width: 475px) {
+  .card {
+    padding: 1.5rem 1.25rem;
+    border-width: 0.25rem;
+  }
+  .card .price {
+    margin-top: 1rem;
+  }
+  .card form {
+    margin-top: 0.75rem;
+  }
 }
 
 .size-cards {
@@ -407,28 +466,45 @@ footer .copyright {
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid #e9dbc3;
   padding: 0.25rem;
-  margin: 0.15rem;
+  margin: 0.2rem;
   border-radius: 0.5rem;
-  cursor: pointer;
+  border: 1px solid rgba(134, 88, 69, 0.3);
+  background: rgba(249, 219, 195, 0.6);
   transition: 0.2s ease-out;
+  cursor: pointer;
   user-select: none;
+  font-size: 16px;
 }
 .size-cards .size-card:hover {
   box-shadow: 0 0.5rem 0.75rem rgba(25, 45, 35, 0.1);
 }
 .size-cards .size-card .small {
-  font-size: 1rem;
+  font-size: 16px;
   pointer-events: none;
 }
 .size-cards .size-card.active {
-  min-height: 8rem;
-  flex: 1 1 40%;
+  min-height: 7rem;
+  flex: 1 1 35%;
   margin: 0.25rem;
-  border: 2px solid rgba(255, 29, 80, 0.6);
+  border: 2px solid rgba(228, 49, 80, 0.6);
   box-shadow: 0 0.5rem 0.75rem rgba(25, 45, 35, 0.1);
-  font-size: 2.5rem;
+  font-size: 2rem;
+  font-weight: 400;
+}
+@media screen and (max-width: 475px) {
+  .size-cards .size-card.active {
+    min-height: 6rem;
+  }
+}
+@media screen and (max-width: 475px) {
+  .size-cards {
+    margin: 0.5rem 0 0;
+  }
+}
+
+.card .color-red {
+  color: red;
 }
 
 .btn {
