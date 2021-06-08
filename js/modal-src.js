@@ -251,7 +251,7 @@ class UserForm extends React.Component {
                          onChange={this.onInputChange}/>
               </div>
               <div className="small color-red mt-1">{this.state.fieldErrors.name}</div>
-              <div className="d-flex align-items-center mt-2">
+              <div className="d-flex align-items-center mt-1">
                   <label htmlFor="whatsapp">WhatsApp:</label>
                   <input type="text"
                          placeholder="02XXXXXXXX"
@@ -261,7 +261,7 @@ class UserForm extends React.Component {
                          onChange={this.onInputChange}/>
               </div>
               <div className="small color-red mt-1">{this.state.fieldErrors.whatsapp}</div>
-              <div className="d-flex align-items-center mt-2">
+              <div className="d-flex align-items-center mt-1">
                   <label htmlFor="instagram">Instagram: </label>
                   <input type="text"
                          placeholder="@yourhandle"
