@@ -472,10 +472,9 @@ footer .copyright {
   }
   .card form {
     margin-top: 1rem;
-    font-size: smaller;
+    font-size: 16px;
   }
   .card input:not([type=submit]) {
-    font-size: 100%;
     padding: 0.125rem 0.4rem;
   }
 }
