@@ -240,7 +240,7 @@ h1 {
   position: relative;
   justify-content: center;
   align-items: center;
-  flex: 0 1 20%;
+  flex: 0 1 17.5%;
   padding: 0.2rem;
   border: 2px solid rgba(222, 24, 60, 0.7);
   border-radius: 2.25rem;
@@ -286,7 +286,7 @@ h1 {
 }
 @media screen and (max-width: 575px) {
   .hero .pics {
-    bottom: -7rem;
+    bottom: -6rem;
     width: 99%;
     justify-content: center;
   }
