@@ -373,6 +373,7 @@ footer .copyright {
 }
 .modal.open h2 {
   font-family: "Rubik";
+  font-weight: 300;
   text-transform: uppercase;
 }
 
