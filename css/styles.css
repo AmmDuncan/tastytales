@@ -427,7 +427,7 @@ footer .copyright {
 }
 .card input:not([type=submit]) {
   border: none;
-  background: rgba(134, 88, 69, 0.075);
+  background: rgba(134, 88, 69, 0.05);
   color: #572A17;
   font-size: 16px;
 }
