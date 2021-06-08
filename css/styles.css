@@ -442,7 +442,7 @@ footer .copyright {
   color: rgba(134, 88, 69, 0.6);
 }
 .card input[type=submit] {
-  font-family: "Rubik";
+  font-family: "Rubik", sans-serif;
   font-weight: 300;
   display: block;
   position: relative;
@@ -502,7 +502,7 @@ footer .copyright {
   cursor: pointer;
   user-select: none;
   font-size: 14px;
-  opacity: 0.75;
+  opacity: 0.6;
 }
 .size-cards .size-card:hover {
   box-shadow: 0 0.5rem 0.75rem rgba(25, 45, 35, 0.1);
