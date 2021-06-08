@@ -203,7 +203,7 @@ class UserForm extends React.Component {
               <div className="d-flex align-items-center justify-content-center mt-4">
                   <input type="submit"
                          value="Place Order"
-                         className="btn btn-primary"/>
+                         className="btn btn-primary form-control"/>
               </div>
           </form>
         )
