@@ -442,7 +442,7 @@ footer .copyright {
 @media screen and (max-width: 475px) {
   .card {
     padding: 1.5rem 1.25rem;
-    border-width: 0.25rem;
+    border-width: 0.5rem;
   }
   .card .price {
     margin-top: 1rem;
