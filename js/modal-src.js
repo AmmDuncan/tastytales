@@ -152,19 +152,21 @@ class UserForm extends React.Component {
         this.setState({
             fields
         })
-
-        this.validateWholeForm(e.target.value, name=false)
+        if (e.target.name === "whatsapp") {
+            this.validateWholeForm(e.target.value, name = false)
+        }
     }
 
     // imperative programming for validation (not pure functions)
     validateWholeForm = (whatsappValue, name=true) => {
         let {whatsapp, instagram} = this.state.fields
         let error = "";
+        if (whatsappValue) whatsapp = whatsappValue;
         if (!whatsapp && !instagram) {
             error = "Provide either your whatsapp number or instagram handle";
         }
         // whatsappValue is provided user that for whatsapp validation
-        let fields = whatsappValue ? {whatsapp: whatsappValue} : {...this.state.fields};
+        let fields = whatsappValue ? {whatsapp} : {...this.state.fields};
         let whatsappErrors = this.validateWhatsAppContact(fields);
 
         let nameErrors = {}
@@ -183,7 +185,7 @@ class UserForm extends React.Component {
         let {whatsapp, instagram} = fields
 
         if (whatsapp && !instagram) {
-            if(!validatePhone(whatsapp)) {
+            if(!validator.isMobilePhone(whatsapp, ['en-GH'])) {
                 errors.whatsapp = "Invalid phone number";
             }else {
                 errors.whatsapp = "";
