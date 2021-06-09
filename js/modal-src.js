@@ -43,6 +43,7 @@ class Root extends React.Component {
         this.state = {
             order: cakes[INDEX],
             active: cakes[INDEX].common,
+            done: false,
         }
         window.callSetOrder = window.callSetOrder.bind(this)
     }
@@ -60,6 +61,15 @@ class Root extends React.Component {
         this.setState(({order, active}) => ({
            order: cakes[ind],
            active: cakes[ind].common,
+            done: false,
+        }))
+    }
+
+    completeOrder = () => {
+        this.setState(({order, active, done}) => ({
+            order,
+            active,
+            done: true,
         }))
     }
 
@@ -77,26 +87,46 @@ class Root extends React.Component {
         let price = parseFloat(order.prices[key])
         price=price.toFixed(2)
 
-        return (
-            <>
-                <h2>Order - {this.state.order.name}</h2>
-                <div className="price">
-                    GH¢{price}
-                    <div className="small">*<strong>Not</strong> including delivery</div>
-                </div>
+        if (!this.state.done) {
+            return (
+              <>
+                  <h2>Order - {this.state.order.name}</h2>
+                  <div className="price">
+                      GH¢{price}
+                      <div className="small">*<strong>Not</strong> including delivery</div>
+                  </div>
 
-                <SizeCardContainer>
-                    {children}
-                </SizeCardContainer>
+                  <SizeCardContainer>
+                      {children}
+                  </SizeCardContainer>
 
-                <UserForm />
+                  <UserForm done={this.completeOrder}/>
 
-                <div className="close">
-                    <img src="img/close.svg" alt="close"/>
-                </div>
+                  <div className="close">
+                      <img src="img/close.svg" alt="close"/>
+                  </div>
 
-            </>
-        )
+              </>
+            )
+        } else {
+            return (
+              <>
+                  {/*<h2>Order - {this.state.order.name}</h2>*/}
+
+                  <div className="orderComplete">
+                      <div className="img">
+                          <img src="img/email-done.svg" alt=""/>
+                      </div>
+                      <h3>Done!</h3>
+                      <p>We will contact you to confirm your order within a few minutes</p>
+                  </div>
+
+                  <div className="close">
+                      <img src="img/close.svg" alt="close"/>
+                  </div>
+              </>
+            ) 
+        }
     }
 }
 
@@ -154,6 +184,16 @@ class UserForm extends React.Component {
         })
         if (e.target.name === "whatsapp") {
             this.validateWholeForm(e.target.value, name = false)
+        } else if(e.target.name === "name"){
+            this.setState(({fields, fieldErrors, error}) => {
+                return {
+                    fields,
+                    fieldErrors: Object.assign(
+                      fieldErrors,
+                      this.validateName({name:e.target.value})
+                    ),
+                    error}
+            })
         }
     }
 
@@ -177,6 +217,15 @@ class UserForm extends React.Component {
         this.setState(({fields}) => {
             return {fields, fieldErrors, error}
         })
+
+        for(let key in fieldErrors) {
+            console.log(fieldErrors[key])
+            if(fieldErrors[key] !== "") return false;
+        }
+
+        if(error !== "") return false;
+
+        return true
     }
 
     validateWhatsAppContact = (fields) => {
@@ -210,7 +259,8 @@ class UserForm extends React.Component {
 
     onFormSubmit = (e) => {
         e.preventDefault()
-        this.validateWholeForm()
+        let valid = this.validateWholeForm()
+        if (valid) this.props.done()
     }
 
     render() {
