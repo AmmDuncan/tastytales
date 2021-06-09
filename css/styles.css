@@ -1,5 +1,40 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&family=Neucha&display=swap");
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("./fonts/PlusJakartaSans-ExtraBold.woff2") format("woff2"), url("./fonts/PlusJakartaSans-ExtraBold.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("./fonts/PlusJakartaSans-Bold.woff2") format("woff2"), url("./fonts/PlusJakartaSans-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("./fonts/PlusJakartaSans-Medium.woff2") format("woff2"), url("./fonts/PlusJakartaSans-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("./fonts/PlusJakartaSans-Regular.woff2") format("woff2"), url("./fonts/PlusJakartaSans-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("./fonts/PlusJakartaSans-Light.woff2") format("woff2"), url("./fonts/PlusJakartaSans-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
 @keyframes glow {
   0% {
     opacity: 0.3;
@@ -222,7 +257,7 @@ body {
 }
 
 strong {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 input, select {
@@ -232,8 +267,8 @@ input, select {
 html {
   font-size: 18px;
   color: #572A17;
-  font-family: "Rubik", sans-serif;
-  font-weight: lighter;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 400;
 }
 @media screen and (max-width: 380px) {
   html {
@@ -269,7 +304,7 @@ h1 {
 .navbar .controls .nav-brand {
   display: flex;
   align-items: center;
-  font-weight: 400;
+  font-weight: 500;
   text-decoration: none;
   color: #572A17;
 }
@@ -294,7 +329,7 @@ h1 {
   color: #613824;
 }
 .navbar .nav .nav-item .nav-link.active {
-  font-weight: 400;
+  font-weight: 700;
 }
 .navbar .nav .nav-item .nav-link:hover {
   color: #E43150;
@@ -480,7 +515,11 @@ footer .content .nav-item {
 }
 footer .content .nav-link {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+  opacity: 0.65;
+}
+footer .content .nav-link:hover {
+  opacity: 0.9;
 }
 
 footer .copyright {
@@ -504,14 +543,14 @@ footer .copyright {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(36, 22, 22, 0.75);
+  background: rgba(36, 22, 22, 0.65);
   display: block;
   overflow-y: scroll;
-  padding: 2rem 0;
+  padding: 7.5vh 0;
 }
 .modal.open h2 {
-  font-family: "Rubik";
-  font-weight: 300;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 400;
   text-transform: uppercase;
 }
 
@@ -547,17 +586,17 @@ footer .copyright {
 .card .price {
   margin-top: 1.25rem;
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 700;
   text-align: center;
 }
 .card .price .small {
   margin-top: 0.1rem;
   font-size: 0.8rem;
-  font-weight: 300;
+  font-weight: 400;
   color: #613824;
 }
 .card .price .small strong {
-  font-weight: 400;
+  font-weight: 500;
 }
 .card h2 {
   text-align: center;
@@ -567,24 +606,26 @@ footer .copyright {
   margin-right: 0.5rem;
 }
 .card input:not([type=submit]) {
+  font-family: inherit;
   border: none;
-  background: rgba(134, 88, 69, 0.05);
+  background: rgba(134, 88, 69, 0.075);
   color: #572A17;
   font-size: 16px;
+  font-weight: 500;
 }
 .card input:not([type=submit]):focus-within {
   border: 1px solid rgba(134, 88, 69, 0.3);
 }
 .card input:not([type=submit])::placeholder {
-  color: rgba(134, 88, 69, 0.6);
+  color: rgba(134, 88, 69, 0.7);
 }
 .card input[type=submit] {
-  font-family: "Rubik", sans-serif;
-  font-weight: 300;
+  font-family: inherit;
+  font-weight: 400;
   display: block;
   position: relative;
   border: none;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
 }
 .card form {
@@ -598,7 +639,7 @@ footer .copyright {
   pointer-events: none;
   line-height: 1.25;
   text-align: center;
-  font-weight: 400;
+  font-weight: 500;
 }
 @media screen and (max-width: 475px) {
   .card {
@@ -699,12 +740,12 @@ footer .copyright {
   margin-top: 1rem;
   font-family: inherit;
   font-size: 1.77667rem;
-  font-weight: 400;
+  font-weight: 700;
   text-align: center;
 }
 .card .orderComplete p {
   line-height: 1.5;
-  max-width: 400;
+  max-width: 400px;
   width: 90%;
   margin: 0.5rem auto 0;
   text-align: center;
@@ -912,7 +953,7 @@ OFFERS
 }
 .offer-card header .name {
   padding-left: 1.5rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.5;
   text-transform: uppercase;
 }
@@ -933,7 +974,8 @@ OFFERS
 }
 .offer-card header .common .price {
   font-size: 1.77667rem;
-  font-weight: bold;
+  font-weight: 900;
+  letter-spacing: -0.2px;
 }
 .offer-card .content {
   position: relative;
@@ -1026,7 +1068,7 @@ OFFERS
   padding: 0 0.75rem;
   background: #eeb984;
   font-size: 0.8rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.618;
 }
 
