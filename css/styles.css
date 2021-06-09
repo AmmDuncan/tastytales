@@ -624,6 +624,7 @@ footer .copyright {
   margin: 1.75rem 0 0;
 }
 .size-cards .size-card {
+  position: relative;
   box-sizing: border-box;
   min-height: 4rem;
   flex: 1 1 20%;
@@ -635,6 +636,7 @@ footer .copyright {
   margin: 0.2rem;
   border-radius: 0.4rem;
   border: 1px solid rgba(134, 88, 69, 0.3);
+  background: #FFF3E3;
   transition: 0.2s ease-out;
   cursor: pointer;
   user-select: none;
