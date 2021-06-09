@@ -10,7 +10,7 @@ modal.addEventListener('click', function(e) {
 
 function closeModal() {
     modal.classList.remove('open');
-    document.body.style.overflowY = "auto";
+    document.body.style.overflow = "auto";
 }
 
 modalCard.addEventListener('click', function (e) {
@@ -22,11 +22,11 @@ modalCard.addEventListener('click', function (e) {
 let INDEX = 0;
 
 function openModal(e){
-    modal.classList.add('open');
-    document.body.style.overflowY = "hidden"
-    let index = parseInt(e.target.dataset.index)
-    callSetOrder(index)
     e.preventDefault();
+    let index = parseInt(e.target.dataset.index)
+    modal.classList.add('open');
+    document.body.style.overflow = "hidden"
+    callSetOrder(index)
 }
 
 function callSetOrder(index) {
