@@ -688,7 +688,7 @@ footer .copyright {
   justify-content: center;
 }
 .card .orderComplete .img img {
-  animation: bounce-in-fwd 0.9s both;
+  animation: bounce-in-fwd 1.2s both;
 }
 .card .orderComplete h3 {
   margin-top: 1rem;
