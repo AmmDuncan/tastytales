@@ -118,7 +118,7 @@ class Root extends React.Component {
                           <img src="img/email-done.svg" alt=""/>
                       </div>
                       <h3>Done!</h3>
-                      <p>We will contact you to confirm your order within a few minutes</p>
+                      <p>We will contact you to confirm your order within a few minutes.</p>
                   </div>
 
                   <div className="close">
