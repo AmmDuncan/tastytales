@@ -561,6 +561,9 @@ footer .copyright {
   width: 90%;
   min-height: 80%;
   max-width: 500px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
   margin: auto;
   background: #FFF3E3;
   padding: 1.5rem 2rem;
