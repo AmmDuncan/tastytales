@@ -252,7 +252,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 67rem;
   width: 85%;
 }
 
@@ -269,6 +269,12 @@ html {
   color: #572A17;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-weight: 400;
+}
+@media screen and (min-width: 1920px) {
+  html {
+    font-size: 20px;
+    line-height: 1.5rem;
+  }
 }
 @media screen and (max-width: 380px) {
   html {
@@ -418,6 +424,11 @@ h1 {
   border-radius: 2rem;
   box-shadow: 0 1rem 1rem rgba(223, 33, 64, 0.2);
 }
+@media screen and (min-width: 1920px) {
+  .hero .pics {
+    max-width: 60rem;
+  }
+}
 @media screen and (max-width: 575px) {
   .hero .pics {
     margin-top: 0;
@@ -467,6 +478,21 @@ h1 {
   .hero .pics .img img {
     border-radius: 50%;
     box-shadow: none;
+  }
+}
+@media screen and (min-width: 1920px) {
+  .hero .content {
+    max-width: 1200px;
+  }
+  .hero .content .paragraph {
+    max-width: 35rem;
+  }
+  .hero .content .paragraph p {
+    max-width: 25rem;
+    font-size: 1.25rem;
+  }
+  .hero h1 {
+    font-size: 5.5rem;
   }
 }
 @media screen and (max-width: 991px) {
@@ -554,19 +580,23 @@ footer .copyright {
   font-weight: 400;
   text-transform: uppercase;
 }
+@media screen and (min-width: 1920px) {
+  .modal.open {
+    padding: 15vh 0;
+  }
+}
 
 .card {
   position: relative;
   box-sizing: border-box;
   width: 90%;
-  min-height: 80%;
   max-width: 500px;
   display: flex;
   flex-flow: column;
   justify-content: center;
   margin: auto;
   background: #FFF3E3;
-  padding: 1.5rem 2rem;
+  padding: 2.25rem 2rem;
   border: 0.5rem solid #FCD2AA;
   border-radius: 1rem;
   box-shadow: 0 1rem 3rem rgba(50, 19, 6, 0.4);
@@ -700,7 +730,7 @@ footer .copyright {
   min-height: 7rem;
   flex: 1 1 50%;
   margin: 0.25rem;
-  border: 2px solid rgba(87, 42, 23, 0.6);
+  border: 3px solid rgba(87, 42, 23, 0.6);
   box-shadow: 0 0.5rem 0.75rem rgba(25, 45, 35, 0.1);
   font-size: 2rem;
   font-weight: 400;
@@ -810,6 +840,11 @@ footer .copyright {
 .btn:active {
   transform: scale(0.975);
 }
+@media screen and (min-width: 1920px) {
+  .btn {
+    padding: 1rem 1.5rem;
+  }
+}
 
 body {
   position: relative;
@@ -828,7 +863,7 @@ body:after {
 }
 
 .section {
-  padding: 8rem 0 8rem;
+  padding: 10rem 0 10rem;
 }
 .section h2 {
   text-transform: capitalize;
@@ -948,7 +983,6 @@ OFFERS
 
 .offer-card {
   margin: auto;
-  max-width: 365px;
   box-shadow: 0 1.25rem 2rem rgba(50, 19, 6, 0.3);
   border-radius: 0.5rem;
   padding: 3rem 0 0rem;
@@ -1009,6 +1043,8 @@ OFFERS
   margin: 2rem auto 0;
   padding: 2rem 0;
   display: flex;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
   justify-content: center;
   background: rgba(50, 19, 6, 0.1);
 }
@@ -1077,6 +1113,11 @@ OFFERS
   font-size: 0.8rem;
   font-weight: 500;
   line-height: 1.618;
+}
+@media screen and (max-width: 1200px) {
+  .offer-card {
+    max-width: 365px;
+  }
 }
 
 /**************************************************

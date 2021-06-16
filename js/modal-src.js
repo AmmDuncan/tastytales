@@ -1,4 +1,5 @@
 const modal = document.querySelector(".modal");
+const backContent = document.querySelectorAll("section");
 const modalCard = document.querySelector(".modal .card");
 const offerBtns = document.querySelectorAll(".offer-card .btn");
 
@@ -11,6 +12,7 @@ modal.addEventListener("click", function (e) {
 function closeModal() {
   modal.classList.remove("open");
   document.body.style.overflow = "auto";
+  backContent.forEach((item) => (item.style.filter = "blur(0)"));
 }
 
 modalCard.addEventListener("click", function (e) {
@@ -26,6 +28,8 @@ function openModal(e) {
   let index = parseInt(e.target.dataset.index);
   modal.classList.add("open");
   document.body.style.overflow = "hidden";
+  backContent.forEach((item) => (item.style.filter = "blur(.2rem)"));
+
   callSetOrder(index);
 }
 
