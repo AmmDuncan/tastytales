@@ -791,7 +791,7 @@ footer .copyright {
 }
 
 .modal.open .card {
-  animation: zoom 0.5s linear both;
+  animation: zoom 0.3s linear both;
 }
 
 .btn {
