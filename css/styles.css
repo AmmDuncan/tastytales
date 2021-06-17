@@ -264,6 +264,10 @@ input, select {
   font-size: 100%;
 }
 
+section {
+  transition: filter 0.2s linear;
+}
+
 html {
   font-size: 18px;
   color: #572A17;
