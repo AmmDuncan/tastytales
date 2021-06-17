@@ -712,7 +712,7 @@ footer .copyright {
   border-radius: 0.4rem;
   border: 1px solid rgba(134, 88, 69, 0.3);
   background: #FFF3E3;
-  transition: 0.2s ease-out;
+  transition: 0.1s ease-out;
   cursor: pointer;
   user-select: none;
   font-size: 14px;
